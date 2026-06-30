@@ -755,7 +755,7 @@
 
         .floating-chat-container {
             position: fixed;
-            bottom: 0.5rem;
+            bottom: 6rem;
             right: 1rem;
             display: flex;
             flex-direction: column-reverse;
@@ -5525,7 +5525,31 @@
     <!-- Ensure body doesn't overlap with fixed bottom nav -->
     <div class="h-24 md:hidden"></div>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const bottomNavLinks = document.querySelectorAll('.fixed.bottom-0 > a');
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    
+    bottomNavLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+        
+        // Reset classes
+        link.className = 'flex flex-col items-center justify-center w-1/5 pb-1 text-gray-400 hover:text-red-700 transition-colors';
+        const span = link.querySelector('span');
+        if (span) span.className = 'text-[10px] font-medium mt-1';
+        
+        // Active match logic
+        if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+            link.className = 'flex flex-col items-center justify-center w-1/5 pb-1 text-red-700';
+            if (span) span.className = 'text-[10px] font-semibold mt-1';
+        }
+    });
+});
+</script>
 </body>
+
 
 </html>
 <script data-skip-moving="true" id="html_badge_script1">
@@ -6177,6 +6201,30 @@ if (window.location.href.indexOf('_gl=') > -1 || window.location.href.indexOf('_
     <!-- Ensure body doesn't overlap with fixed bottom nav -->
     <div class="h-24 md:hidden"></div>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const bottomNavLinks = document.querySelectorAll('.fixed.bottom-0 > a');
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    
+    bottomNavLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+        
+        // Reset classes
+        link.className = 'flex flex-col items-center justify-center w-1/5 pb-1 text-gray-400 hover:text-red-700 transition-colors';
+        const span = link.querySelector('span');
+        if (span) span.className = 'text-[10px] font-medium mt-1';
+        
+        // Active match logic
+        if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+            link.className = 'flex flex-col items-center justify-center w-1/5 pb-1 text-red-700';
+            if (span) span.className = 'text-[10px] font-semibold mt-1';
+        }
+    });
+});
+</script>
 </body>
+
 
 </html>
